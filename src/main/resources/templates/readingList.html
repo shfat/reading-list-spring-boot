@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Your Reading List</title>
+
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Your Reading List</h1>
+
+    <div th:if="${books == null or #lists.isEmpty(books)}" class="empty-message">
+        You have no books in your book list.
+    </div>
+
+    <div th:each="book : ${books}" class="book-card">
+
+        <h2 class="bookHeadline">
+            <span th:text="${book.title}">Book Title</span>
+            by
+            <span th:text="${book.author}">Book Author</span>
+        </h2>
+
+        <p class="isbn">
+            ISBN:
+            <span th:text="${book.isbn}">ISBN</span>
+        </p>
+
+        <p class="bookDescription"
+           th:text="${book.description}">
+            Book description
+        </p>
+
+    </div>
+
+
+    <div class="form-section">
+
+        <h2>Add a book</h2>
+
+        <form method="post">
+
+            <label>
+                Title:
+                <input type="text" name="title" required>
+            </label>
+
+            <label>
+                Author:
+                <input type="text" name="author" required>
+            </label>
+
+            <label>
+                ISBN:
+                <input type="text" name="isbn" required>
+            </label>
+
+            <label>
+                Description:
+                <textarea name="description" required></textarea>
+            </label>
+
+            <button type="submit">Submit</button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>
