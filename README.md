@@ -26,6 +26,8 @@ Users can view their reading list and add new books through a simple web interfa
 - Hibernate
 - Thymeleaf
 - H2 Database
+- HTML5
+- CSS3
 - Maven
 
 ## Project Structure
